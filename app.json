@@ -1,0 +1,13 @@
+{
+    "pages": [
+        "pages/welcome/welcome",
+        "pages/main/main",
+        "pages/add/add"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#000",
+        "navigationBarTitleText": "小睡眠",
+        "navigationBarTextStyle": "white"
+    }
+}

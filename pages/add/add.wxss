@@ -1,0 +1,101 @@
+page {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+
+.ad-page {
+    height: 100%;
+    flex-direction: column;
+    display: flex;
+}
+
+#ad-scrollview {
+    flex-grow: 1;
+}
+
+.ad-item {
+    display: flex;
+    flex-direction: row;
+    min-height: 164rpx;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.ad-item-logo {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+}
+
+.ad-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30rpx;
+    width: 550rpx;
+}
+
+.ad-item-title {
+    font-size: 30rpx;
+    color: #333333;
+    word-break: break-all;
+}
+
+.ad-item-sub-title {
+    font-size: 18rpx;
+    color: #ffffff;
+    background-color: #D475CB;
+    word-break: break-all;
+    margin-left: 20rpx;
+    padding: 5rpx 10rpx;
+    border-radius: 3rpx;
+}
+
+.ad-item-desc {
+    font-size: 22rpx;
+    color: #B3B3B3;
+    word-break: break-all;
+}
+
+.ad-item-bottom-line {
+    width: 670rpx;
+    background-color: #000;
+    opacity: 0.1;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ad-res-exchange {
+    width: 100%;
+    text-align: center;
+    font-size: 20rpx;
+    color: #808080;
+    height: 40rpx;
+}
+
+.ad-item-tips-img {
+    width: 80rpx;
+    height: 80rpx;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.ad-item-title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10rpx;
+}
+
+.nightmode.ad-page {
+    background-color: #29252E;
+}
+
+.nightmode .ad-item-title {
+    color: #E6E6E6;
+}

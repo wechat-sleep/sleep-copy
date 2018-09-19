@@ -1,0 +1,32 @@
+.welcome-loading {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+page {
+    height: 100%;
+}
+
+.welcome-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.welcome-loading image {
+    width: 386rpx;
+    height: 577rpx;
+    margin-top: 100rpx;
+}
+
+.welcome-loading text {
+    position: absolute;
+    bottom: 30rpx;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 24rpx;
+    color: #635045;
+}

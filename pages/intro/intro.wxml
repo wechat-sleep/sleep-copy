@@ -1,0 +1,20 @@
+<view id="intro-container">
+    <swiper bindchange="swpPageChange" current="{{swpNum}}" id="intro" indicatorDots="true">
+        <swiper-item>
+            <view>
+                <image class="slide-image" src="/images/intro1.png"></image>
+            </view>
+        </swiper-item>
+        <swiper-item>
+            <view animation="{{anim_gotoApp}}" catchtap="goToApp">
+                <image class="slide-image" src="/images/intro2.png"></image>
+            </view>
+        </swiper-item>
+    </swiper>
+    <view catchtap="prePage" class="arrow_left {{swpNum==1?'arrow_show':'arrow_hide'}}">
+        <image src="/images/arrow_left.png"></image>
+    </view>
+    <view catchtap="nextPage" class="arrow_right">
+        <image src="/images/arrow_right.png"></image>
+    </view>
+</view>

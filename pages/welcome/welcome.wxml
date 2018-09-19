@@ -1,0 +1,4 @@
+<view class="welcome-loading">
+    <image src="/images/loading.png"></image>
+    <text>心潮科技</text>
+</view>

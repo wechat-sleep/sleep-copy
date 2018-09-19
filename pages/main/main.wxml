@@ -1,0 +1,297 @@
+<view class="top-tips {{showTopTipFlag?'show':''}}">{{topTipText}}</view>
+<view class="main-container-bg fixbg" style="display:{{isNightMode?'block':'none'}}">
+    <image class="main-container-bg-img" src="/images/tinysleep_triangle_nightmode_bg.jpg"></image>
+</view>
+<view class="{{isNightMode?'nightmode':'daymode'}} {{isBigFont?'big-font':''}} {{'bg-'+bg_color_class}}" id="main-container">
+    <view catchtap="togglePlay" id="main-music-view">
+        <image id="main-cover" src="{{isNightMode?currentMusic.cover_miniapp_black:currentMusic.cover_miniapp_white}}" style="opacity:{{musicList[currentMusicIdx]&&musicList[currentMusicIdx].needPay?0.2:1}};"></image>
+        <text id="main-cover-text" style="opacity:{{musicList[currentMusicIdx]&&musicList[currentMusicIdx].needPay?0.2:1}};">{{currentMusic?currentMusic.musicdesc:'加载中'}}</text>
+        <view id="main-music-control" style="opacity:{{musicList[currentMusicIdx]&&musicList[currentMusicIdx].needPay?0.2:1}};">
+            <image animation="{{anim_control}}" src="/images/{{isPlaying?'stop.png':'play.png'}}"></image>
+        </view>
+    </view>
+    <view animation="{{anim_timeingPannel}}" id="main-music-time-control-container">
+        <view class="comp-slider">
+            <view class="comp-slider-line">
+                <view catchtap="manualSelTimeType" class="comp-slider-dot" data-tmtype="{{0}}" style="left:-56rpx;">
+                    <view></view>
+                    <text>5</text>
+                </view>
+                <view catchtap="manualSelTimeType" class="comp-slider-dot" data-tmtype="{{1}}" style="left:44rpx;">
+                    <view></view>
+                    <text>10</text>
+                </view>
+                <view catchtap="manualSelTimeType" class="comp-slider-dot" data-tmtype="{{2}}" style="left:144rpx;">
+                    <view></view>
+                    <text>15</text>
+                </view>
+                <view catchtap="manualSelTimeType" class="comp-slider-dot" data-tmtype="{{3}}" style="left:244rpx;">
+                    <view></view>
+                    <text>30</text>
+                </view>
+                <view catchtap="manualSelTimeType" class="comp-slider-dot" data-tmtype="{{4}}" style="left:344rpx;">
+                    <view></view>
+                    <text>60</text>
+                </view>
+                <view catchtap="manualSelTimeType" class="comp-slider-dot" data-tmtype="{{5}}" style="left:444rpx;">
+                    <view></view>
+                    <text>∞</text>
+                </view>
+            </view>
+        </view>
+        <view catchtap="hideTimeingPannel" id="comp-slider-tips">
+            <text>{{timeingTipsText}}</text>
+            <image src="/images/close.png"></image>
+        </view>
+        <view animation="{{animTimeControlSpot}}" catchtouchcancel="timeTouchCancel" catchtouchend="timeTouchEnd" catchtouchmove="timeTouchMove" catchtouchstart="timeTouchStart" id="comp-slider-seldot" style="left: {{timeControlOffset}}rpx;">
+            <image src="/images/lightdrop.png"></image>
+        </view>
+    </view>
+    <view animation="{{anim_musicListPannel}}" id="main-music-pannel" style="height:{{pannelHeight}}px;background-color:{{isNightMode?'black':'white'}};">
+        <view catchtap="toggleTimeingPannel" id="main-music-timeing" style="opacity:{{musicList[currentMusicIdx]&&musicList[currentMusicIdx].needPay?0.2:1}};border-radius:0 0 25rpx 25rpx" class="{{isNightMode?'nightmode':'daymode'}} {{isBigFont?'big-font':''}} {{'bg-'+bg_color_class}}" >
+            <view animation="{{anim_timeingContainer}}" id="main-music-timeing-container">
+                <text>{{remainTimeText}}</text>
+                <image src="/images/up.png" style="animation: {{timeArrowAnimStyle}};"></image>
+            </view>
+        </view>
+        <scroll-view animation="{{anim_musicListScroll}}" scrollTop="{{scrollTop}}" scrollY="ture" style="width:750rpx;height:{{listHeight}}px;" >
+            <view class="main-music-list">
+                <block wx:for="{{musicList}}" wx:for-index="idx">
+                    <view catchtap="selectMusic" class="main-music-item" data-idx="{{idx}}" data-music-id="{{item.id}}" data-music-img-big="{{item.cover_miniapp_big}}" data-music-title="{{item.musicdesc}}" wx:if="{{!item.ad_id}}">
+                        <image class="main-item-new" src="/images/tinysleep_music_new.png" style="display:{{musicNewDict[item.id]?'block':'none'}};"></image>
+                        <view class="main-item-sel-container {{currentMusic.id==item.id?'active':''}} {{isPlaying?'':'stop'}}">
+                            <view class="main-item-sel-outer {{'bg-'+item.color_miniapp}}"></view>
+                            <view class="main-item-sel-inner {{'bg-'+item.color_miniapp}}"></view>
+                        </view>
+                        <image src="{{currentMusic.id==item.id?item.cover_miniapp_white:item.cover_miniapp_black}}" style="opacity:{{item.needPay?0.2:1}};"></image>
+                        <text style="opacity:{{item.needPay?0.2:1}};">{{item.musicdesc}}</text>
+                    </view>
+                    <view catchtap="selectAd" class="main-music-item" data-appdata="{{item}}" wx:if="{{item.ad_id}}">
+                        <image class="main-item-new" src="/images/home_ad_tag.png" style="display:{{item.ad_id>0?'block':'none'}};"></image>
+                        <image src="{{item.ad_cover_black}}"></image>
+                        <text>{{item.ad_name}}</text>
+                    </view>
+                </block>
+            </view>
+            <view id="main-music-extend-pannel-pad" style="height:{{isShowUpExtend?400:0}}rpx;"></view>
+        </scroll-view>
+    </view>
+    <view id="main-play-tips" style="display:{{isShowTips?'block':'none'}};">
+        <view animation="{{anim_playTipsOverlay}}" catchtap="hidePlayTips" id="main-play-tips-overlay"></view>
+        <view animation="{{anim_playTips}}" id="main-play-tips-img-wrapper">
+            <image id="main-play-tips-img-bg" src="/images/windows-{{currentMusic?'bg-'+currentMusic.color_miniapp:'bg-blue'}}.png"></image>
+            <view class="main-play-tips-content" style="display:{{currentMusic.color_miniapp=='purple'?'none':'block'}};">
+                <image class="main-play-tips-img-icon" src="{{currentMusic.cover_miniapp_big}}"></image>
+                <text class="main-play-tips-song-name">{{currentMusic?currentMusic.musicdesc:'加载中'}}</text>
+            </view>
+            <view class="main-play-tips-content" style="display:{{currentMusic.color_miniapp=='purple'?'block':'none'}};">
+                <image class="main-play-tips-img-icon" src="{{currentMusic.cover_miniapp_big}}"></image>
+                <text class="main-play-tips-song-name">{{currentMusic?currentMusic.musicdesc:'加载中'}}</text>
+                <text class="main-play-tips-song-desc">{{currentMusic?currentMusic.resdesc:'加载中'}}</text>
+                <view catchtap="iWantYou" data-music="{{currentMusic}}" id="main-play-tips-diamond" style="padding:{{diamondPaddingV}}rpx 0;">
+                    <view style="display:{{musicUrlList['music'+currentMusic.id].length>0?'block':'none'}};">
+                        <image src="/images/diamond.png"></image>
+                    </view>
+                    <view id="main-play-tips-diamond-b" style="display:{{musicUrlList['music'+currentMusic.id].length>0?'none':'block'}};">
+                        <text>¥{{currentMusic.price}} 购买解锁</text>
+                    </view>
+                </view>
+                <view id="main-play-tips-tags">
+                    <view wx:for="{{currentMusic.music_label}}" wx:for-index="idx">
+                        <image src="/images/music/tags/{{item+'.png'}}"></image>
+                    </view>
+                </view>
+            </view>
+            <view catchtap="hidePlayTips" id="main-play-tips-close">
+                <image src="/images/windows_close.png"></image>
+            </view>
+        </view>
+    </view>
+    <view id="main-update-intro" style="display:{{isShowUpdateIntro?'block':'none'}};">
+        <view animation="{{anim_updateIntroOverlay}}" catchtap="hideUpdateIntro" id="main-update-intro-overlay"></view>
+        <view animation="{{anim_updateIntro}}" id="main-update-intro-img-wrapper">
+            <image id="main-update-intro-img-bg" src="{{isNightMode?'/images/new2.png':'/images/windows8.png'}}"></image>
+            <scroll-view scrollY id="main-update-intro-scorll">
+                <text style="display:{{hasNewUpdateIntro?'block':'none'}};">{{updateNewIntroText}}</text>
+                <text style="display:{{!hasNewUpdateIntro?'block':'none'}};">{{updateIntroText}}</text>
+            </scroll-view>
+            <view catchtap="hideUpdateIntro" id="main-update-intro-close">
+                <image src="{{isNightMode?'/images/window_close2_night.png':'/images/windows_close2.png'}}"></image>
+            </view>
+        </view>
+    </view>
+    <view id="main-zzz-view" wx:if="{{isShowZZZ}}">
+        <image src="{{isNightMode?'/images/zzz_night.gif':'/images/zzz_day.gif'}}"></image>
+    </view>
+    <view animation="{{anim_extendPannelBtn}}" catchtouchcancel="touchEndExtendPannel" catchtouchend="touchEndExtendPannel" catchtouchstart="touchStartExtendPannel" id="main-extend-btn">
+        <image class="bg" src="{{isNightMode?'/images/more_bg_night.png':'/images/more_bg.png'}}"></image>
+        <image class="open" src="{{isNightMode?'/images/more_night.png':'/images/more.png'}}"></image>
+    </view>
+    <view animation="{{anim_extendPannel}}" id="main-extend-pannel" style="display:{{isShowUpExtend?'flex':'none'}};">
+        <view catchtap="changeNightMode" class="extend-item">
+            <image src="{{isNightMode?'/images/day_mode.png':'/images/night_mode.png'}}" style="width:40rpx;height:40rpx"></image>
+            <view class="func-title">{{isNightMode?'日间模式':'夜间模式'}}</view>
+        </view>
+        <view catchtap="showRankView" class="extend-item">
+            <image src="{{isNightMode?'/images/ranking_list_night.png':'/images/ranking_list.png'}}" style="width:40rpx;height:40rpx"></image>
+            <view class="func-title">最热排行</view>
+        </view>
+        <view catchtap="showRecommendView" class="extend-item">
+            <image src="{{isNightMode?'/images/theme_button_night.png':'/images/theme_button.png'}}" style="width:40rpx;height:40rpx"></image>
+            <view class="func-title">主题氛围</view>
+        </view>
+        <view catchtap="topMusic" class="extend-item">
+            <image src="{{isNightMode?'/images/top_night.png':'/images/top.png'}}" style="width:40rpx;height:40rpx"></image>
+            <view class="func-title">置顶音频</view>
+        </view>
+        <view catchtap="changeBigFont" class="extend-item">
+            <image src="{{isNightMode?'/images/font_size_night.png':'/images/font_size.png'}}" style="width:40rpx;height:40rpx"></image>
+            <view class="func-title">{{isBigFont?'默认字号':'一键大字'}}</view>
+        </view>
+        <view catchtap="showUpdateIntro" catchtouchcancel="touchEndRegVoiceBtn" catchtouchend="touchEndRegVoiceBtn" catchtouchstart="touchStartRegVoiceBtn" class="extend-item">
+            <image src="{{isNightMode?'/images/speech_button_night.png':'/images/speech_button.png'}}" style="width:40rpx;height:40rpx"></image>
+            <view class="func-title">长按语搜</view>
+        </view>
+        <view catchtap="feedback" class="extend-item">
+             <image src="{{isNightMode?'/images/feedback_night.png':'/images/feedback_white.png'}}" style="width:40rpx;height:40rpx"></image>
+             <view class="func-title">欢迎吐槽</view>
+        </view>
+        <view catchtap="hideExtendPannel" id="main-extend-pannel-close-btn">
+            <image src="{{isNightMode?'/images/close_more_night.png':'/images/close_more.png'}}"></image>
+        </view>
+    </view>
+    <view class="ai-voice-intro" style="display:{{isShowAiVoiceIntro?'block':'none'}};">
+        <view animation="{{anim_AiVoiceIntroOverlay}}" catchtap="hideAiVoiceIntroAndBottomTips" id="ai-voice-intro-overlay"></view>
+        <view animation="{{anim_AiVoiceIntro}}" class="ai-voice-intro-content-container">
+            <image id="ai-voice-intro-main-bg" src="/images/speech_window.png"></image>
+            <image catchtap="hideAiVoiceIntroAndBottomTips" id="ai-voice-intro-confirm-btn" src="/images/tinysleep_guide_button.png"></image>
+        </view>
+    </view>
+    <view animation="{{anim_AiVoiceBottomTips}}" id="ai-voice-bottom-tips" style="display:{{isShowAiVoiceBottomTips?'block':'none'}};">
+        <view class="title">长按</view>
+        <image class="mic" src="{{isNightMode?'/images/speech1_night.png':'/images/speech1_day.png'}}"></image>
+        <image class="bg" src="{{isNightMode?'/images/voice_anim_1_night.gif':'/images/voice_anim_1.gif'}}"></image>
+    </view>
+    <view animation="{{anim_AiVoiceShowRecordPannel}}" catchtap="hideRecordPannel" id="ai-voice-record-pannel" wx:if="{{isShowRecordPannel}}">
+        <view class="title" wx:if="{{!isVoiceRecording&&!isRecognising&&willToRecord}}">说话太短，无法识别</view>
+        <view class="title" wx:if="{{isVoiceRecording}}">说出想听，松开结束</view>
+        <view class="title" wx:if="{{isRecognising}}">正在为你识别</view>
+        <image class="anim_recording" src="{{isNightMode?'/images/voice_anim_2_night.gif':'/images/voice_anim_2.gif'}}" wx:if="{{isVoiceRecording&&!isVoiceRecordCountLast}}"></image>
+        <view class="sub-title" wx:if="{{isVoiceRecording}}">你可以说：雨打芭蕉、478、火车...</view>
+        <view class="count-last" wx:if="{{isVoiceRecordCountLast}}">{{voiceRecordCountLast}}</view>
+        <image class="regconiseing" src="{{isNightMode?'/images/voice_anim_1_night.gif':'/images/voice_anim_1.gif'}}" wx:if="{{isRecognising}}"></image>
+        <image class="mic" src="{{isNightMode?'/images/speech1_night.png':'/images/speech1_day.png'}}"></image>
+        <image id="ai-voice-pannel-shadow" src="/images/more_shadow.png"></image>
+    </view>
+    <view catchtap="showPlayTips" id="main-help">
+        <image src="/images/information.png"></image>
+    </view>
+    <view animation="{{anim_RecommendView}}" class="main-recommend-board" style="display:{{isShowRecommendView?'block':'none'}};">
+        <scroll-view class="main-recommend-list-scrollview" scrollY="ture">
+            <view class="main-recommend-list">
+                <view class="main-recommend-item" wx:for="{{recommendList}}" wx:for-index="idx" wx:for-item="recommendItem">
+                    <image class="main-recommend-item-bg" src="{{recommendItem.recommend_cover}}"></image>
+                    <view class="main-recommend-item-content-wrapper">
+                        <view class="main-recommend-item-title">{{recommendItem.recommend_name}}</view>
+                        <image catchtap="togglePlayRecommend" class="main-recommend-item-control-img" data-idx="{{idx}}" src="/images/{{currentRecomendMusic&&currentRecomendMusic.recommend_id==recommendItem.recommend_id&&isPlaying?'xc_tinysleep_stop.png':'xc_tinysleep_play.png'}}"></image>
+                    </view>
+                    <view class="main-recommend-item-progress-wrapper" wx:if="{{currentRecomendMusic&&currentRecomendMusic.recommend_id==recommendItem.recommend_id}}">
+                        <view class="main-recommend-item-progress-outer">
+                            <view class="main-recommend-item-progress-inner" style="width:{{recommendPassPercent}}%"></view>
+                        </view>
+                        <view class="main-recommend-item-progress-timer">{{recommendRemainTimeText}}</view>
+                    </view>
+                </view>
+            </view>
+            <view style="height:200rpx;"></view>
+        </scroll-view>
+        <view class="main-rank-close-pannel">
+            <image class="main-rank-close-pannel-bg" src="{{isNightMode?'/images/tinysleep_triangle_bg.png':'/images/wave.png'}}"></image>
+            <view catchtap="hideRecommendView" class="main-rank-close-btn">
+                <image src="{{isNightMode?'/images/close_more_night.png':'/images/close_more.png'}}"></image>
+            </view>
+        </view>
+    </view>
+    <view animation="{{anim_IntroView}}" class="main-rank-board" style="display:{{isShowRankView?'block':'none'}};">
+        <view class="main-container-bg">
+            <image class="main-container-bg-img" src="/images/tinysleep_triangle_nightmode_bg.jpg"></image>
+        </view>
+        <view id="main-rank-board-top-wrapper">
+            <view class="main-rank-top3-pannel">
+                <view catchtap="selectRankMusic" class="main-music-item top2" data-music-id="{{rank2.id}}">
+                    <view class="main-item-sel-container  {{currentMusic.id==rank2.id?'active':''}} {{isPlaying?'':'stop'}}">
+                        <view class="main-item-sel-outer {{'bg-'+rank2.color_miniapp}}"></view>
+                        <view class="main-item-sel-inner {{'bg-'+rank2.color_miniapp}}"></view>
+                    </view>
+                    <image src="{{currentMusic.id==rank2.id?rank2.cover_miniapp_white:rank2.cover_miniapp_black}}"></image>
+                    <text>{{rank2.musicdesc}}</text>
+                    <view class="main-rank-top3-count-container">
+                        <image src="/images/tinysleep_listen_icon.png"></image>
+                        <text>{{rank2.music_play_count}}</text>
+                    </view>
+                    <image class="top-pos" src="/images/tinysleep_menu_list_Second.png"></image>
+                </view>
+                <view catchtap="selectRankMusic" class="main-music-item top1" data-music-id="{{rank1.id}}">
+                    <view class="main-item-sel-container {{currentMusic.id==rank1.id?'active':''}} {{isPlaying?'':'stop'}}">
+                        <view class="main-item-sel-outer {{'bg-'+rank1.color_miniapp}}"></view>
+                        <view class="main-item-sel-inner {{'bg-'+rank1.color_miniapp}}"></view>
+                    </view>
+                    <image src="{{currentMusic.id==rank1.id?rank1.cover_miniapp_white:rank1.cover_miniapp_black}}"></image>
+                    <text>{{rank1.musicdesc}}</text>
+                    <view class="main-rank-top3-count-container">
+                        <image src="/images/tinysleep_listen_icon.png"></image>
+                        <text>{{rank1.music_play_count}}</text>
+                    </view>
+                    <image class="top-pos" src="/images/tinysleep_menu_list_first.png"></image>
+                </view>
+                <view catchtap="selectRankMusic" class="main-music-item top3" data-music-id="{{rank3.id}}">
+                    <view class="main-item-sel-container {{currentMusic.id==rank3.id?'active':''}} {{isPlaying?'':'stop'}}">
+                        <view class="main-item-sel-outer {{'bg-'+rank3.color_miniapp}}"></view>
+                        <view class="main-item-sel-inner {{'bg-'+rank3.color_miniapp}}"></view>
+                    </view>
+                    <image src="{{currentMusic.id==rank3.id?rank3.cover_miniapp_white:rank3.cover_miniapp_black}}"></image>
+                    <text>{{rank3.musicdesc}}</text>
+                    <view class="main-rank-top3-count-container">
+                        <image src="/images/tinysleep_listen_icon.png"></image>
+                        <text>{{rank3.music_play_count}}</text>
+                    </view>
+                    <image class="top-pos" src="/images/tinysleep_menu_list_third.png"></image>
+                </view>
+            </view>
+            <view class="rank-type-sel-pannel">
+                <image src="/images/tinysleep_menu_list_switch.png"></image>
+                <view class="rank-type-sel">
+                    <view catchtap="selRankWeek" class="rank-week {{currentRankType=='week'?'active':''}}">周榜</view>
+                    <view catchtap="selRankTotal" class="rank-all {{currentRankType=='total'?'active':''}}">总榜</view>
+                </view>
+            </view>
+        </view>
+        <scroll-view class="main-rank-list-scrollview" scrollY="ture" style="width:750rpx;height:{{rankListHeight}}px;">
+            <view style="height:20rpx;"></view>
+            <view class="main-rank-list">
+                <view catchtap="selectRankMusic" class="main-rank-item" data-music-id="{{rankItem.id}}" wx:for="{{currentRankList}}" wx:for-index="idx" wx:for-item="rankItem">
+                    <view class="main-rank-no">{{idx+4}}</view>
+                    <view class="main-music-item">
+                        <view class="main-item-sel-container {{currentMusic.id==rankItem.id?'active':''}}  {{isPlaying?'':'stop'}}">
+                            <view class="main-item-sel-outer {{'bg-'+rankItem.color_miniapp}}"></view>
+                            <view class="main-item-sel-inner {{'bg-'+rankItem.color_miniapp}}"></view>
+                        </view>
+                        <image src="{{currentMusic.id==rankItem.id?rankItem.cover_miniapp_white:rankItem.cover_miniapp_black}}"></image>
+                    </view>
+                    <view class="main-rank-title">{{rankItem.musicdesc}}</view>
+                    <view class="main-rank-play-times">
+                        <image src="/images/tinysleep_listen_icon.png"></image>
+                        <text>{{rankItem.music_play_count}}</text>
+                    </view>
+                </view>
+            </view>
+            <view style="height:200rpx;"></view>
+        </scroll-view>
+        <view class="main-rank-close-pannel">
+            <image class="main-rank-close-pannel-bg" src="{{isNightMode?'/images/tinysleep_triangle_bg.png':'/images/wave.png'}}"></image>
+            <view catchtap="hideRankView" class="main-rank-close-btn">
+                <image src="{{isNightMode?'/images/close_more_night.png':'/images/close_more.png'}}"></image>
+            </view>
+        </view>
+    </view>
+</view>

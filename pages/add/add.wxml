@@ -1,0 +1,20 @@
+<view class="ad-page {{isNightMode?'nightmode':'daymode'}}">
+    <scroll-view id="ad-scrollview" scrollY="ture">
+        <view>
+            <view catchtap="openMiniApp" class="ad-item" data-appdata="{{item}}" wx:for="{{innerAdsList}}" wx:for-index="idx">
+                <image class="ad-item-tips-img" src="{{item.recommend_type}}" wx:if="{{item.recommend_type}}"></image>
+                <image class="ad-item-logo" src="{{item.recommend_logo}}"></image>
+                <view class="ad-content">
+                    <view class="ad-item-title-container">
+                        <text class="ad-item-title">{{item.recommend_title}}</text>
+                        <text class="ad-item-sub-title" style="background-color: {{item.recommend_subtitle_bg}};" wx:if="{{item.recommend_subtitle}}">{{item.recommend_subtitle}}</text>
+                    </view>
+                    <text class="ad-item-desc">{{item.recommend_desc}}</text>
+                </view>
+                <view class="ad-item-bottom-line"></view>
+            </view>
+        </view>
+    </scroll-view>
+    <text class="ad-res-exchange">资源置换请联系【QQ：2150973701】</text>
+    <ad unitId="adunit-f2c5b5b5fbcec3c6"></ad>
+</view>

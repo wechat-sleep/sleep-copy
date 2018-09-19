@@ -1,0 +1,465 @@
+var g = [ {
+    id: "13",
+    title: "雨打芭蕉",
+    img_big: "Breathstudy_img01_BGM250.png",
+    img_white: "Breathstudy_img01A_BGM@2x.png",
+    img_black: "Breathstudy_img01_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "14",
+    title: "风铃翩跹",
+    img_big: "Breathstudy_img02_BGM250.png",
+    img_white: "Breathstudy_img02A_BGM@2x.png",
+    img_black: "Breathstudy_img02_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "15",
+    title: "红泥小炉",
+    img_big: "Breathstudy_img03_BGM250.png",
+    img_white: "Breathstudy_img03A_BGM@2x.png",
+    img_black: "Breathstudy_img03_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "16",
+    title: "沙滩嬉戏",
+    img_big: "Breathstudy_img04_BGM250.png",
+    img_white: "Breathstudy_img04A_BGM@2x.png",
+    img_black: "Breathstudy_img04_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "17",
+    title: "夜虫唧唧",
+    img_big: "Breathstudy_img05_BGM250.png",
+    img_white: "Breathstudy_img05A_BGM@2x.png",
+    img_black: "Breathstudy_img05_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "18",
+    title: "林中鸟语",
+    img_big: "Breathstudy_img06_BGM250.png",
+    img_white: "Breathstudy_img06A_BGM@2x.png",
+    img_black: "Breathstudy_img06_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "19",
+    title: "摇篮小曲",
+    img_big: "Breathstudy_img07_BGM250.png",
+    img_white: "Breathstudy_img07A_BGM@2x.png",
+    img_black: "Breathstudy_img07_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "20",
+    title: "轻踏落叶",
+    img_big: "Breathstudy_img08_BGM250.png",
+    img_white: "Breathstudy_img08A_BGM@2x.png",
+    img_black: "Breathstudy_img08_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "21",
+    title: "隐隐春雷",
+    img_big: "Breathstudy_img09_BGM250.png",
+    img_white: "Breathstudy_img09A_BGM@2x.png",
+    img_black: "Breathstudy_img09_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "22",
+    title: "咖啡の屋",
+    img_big: "Breathstudy_img010_BGM250.png",
+    img_white: "Breathstudy_img010A_BGM@2x.png",
+    img_black: "Breathstudy_img010_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "23",
+    title: "半岛铁盒",
+    img_big: "Breathstudy_img011_BGM250.png",
+    img_white: "Breathstudy_img011A_BGM@2x.png",
+    img_black: "Breathstudy_img011_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "34",
+    title: "布谷之鸣",
+    img_big: "Breathstudy_img012_BGM250.png",
+    img_white: "Breathstudy_img012A_BGM@2x.png",
+    img_black: "Breathstudy_img012_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "131",
+    mid: "5",
+    title: "白云湖水",
+    img_big: "shoufei_logoA250.png",
+    img_white: "shoufei_logoA60.png",
+    img_black: "shoufei_logoA60_black.png",
+    color: "bg-purple",
+    tags: [ 1, 4, 5 ],
+    desc: "轻冥想系列之白云湖水\n适合平缓放松\n化作一朵白云随着微风\n自由飘于蓝天",
+    price: 0
+}, {
+    id: "122",
+    mid: "5",
+    title: "麦田想象",
+    img_big: "shoufei_logoA250.png",
+    img_white: "shoufei_logoA60.png",
+    img_black: "shoufei_logoA60_black.png",
+    color: "bg-purple",
+    tags: [ 1, 4, 5 ],
+    desc: "轻冥想系列之麦田想象\n适合温暖放松\n走进一片金色的麦田中\n暖风轻抚脸颊",
+    price: .99
+}, {
+    id: "100",
+    mid: "5",
+    title: "高效午休",
+    img_big: "shoufei_logoB250.png",
+    img_white: "shoufei_logoB60.png",
+    img_black: "shoufei_logoB60_black.png",
+    color: "bg-purple",
+    tags: [ 3, 4, 6 ],
+    desc: "睡眠Plus系列之高效午休\n适合午间放松\n释放疲劳并提高午休效率\n帮助恢复精力",
+    price: 1.99
+}, {
+    id: "60",
+    mid: "2",
+    title: "舒眠引导",
+    img_big: "shoufei_logoB250.png",
+    img_white: "shoufei_logoB60.png",
+    img_black: "shoufei_logoB60_black.png",
+    color: "bg-purple",
+    tags: [ 3, 4, 5 ],
+    desc: "睡眠Plus系列之舒眠引导\n适合睡前进行\n在纯净海浪中呼吸放松\n进入甜美梦乡",
+    price: 1.99
+}, {
+    id: "103",
+    mid: "5",
+    title: "焦虑消除",
+    img_big: "shoufei_logoB250.png",
+    img_white: "shoufei_logoB60.png",
+    img_black: "shoufei_logoB60_black.png",
+    color: "bg-purple",
+    tags: [ 2, 3, 4 ],
+    desc: "睡眠Plus系列之焦虑消除\n适合焦虑型失眠\n减少不安情绪与噩梦频次\n提高睡眠质量",
+    price: 3.99
+}, {
+    id: "116",
+    mid: "5",
+    title: "冥想放松",
+    img_big: "shoufei_logoA250.png",
+    img_white: "shoufei_logoA60.png",
+    img_black: "shoufei_logoA60_black.png",
+    color: "bg-purple",
+    tags: [ 1, 4, 6 ],
+    desc: "深度冥想系列之冥想放松\n适合长期冥想者\n消除负面情绪与体内污浊\n找回内心喜悦",
+    price: 3.99
+}, {
+    id: "49",
+    mid: "2",
+    title: "完整舒眠",
+    img_big: "shoufei_logoB250.png",
+    img_white: "shoufei_logoB60.png",
+    img_black: "shoufei_logoB60_black.png",
+    color: "bg-purple",
+    tags: [ 2, 3, 4 ],
+    desc: "睡眠Plus系列之完整舒眠\n适合重度失眠患者\n专业的睡前腹式呼吸调整\n渐进式催眠放松",
+    price: 5.99
+}, {
+    id: "101",
+    mid: "5",
+    title: "护眼放松",
+    img_big: "shoufei_logoA250.png",
+    img_white: "shoufei_logoA60.png",
+    img_black: "shoufei_logoA60_black.png",
+    color: "bg-purple",
+    tags: [ 1, 4, 5 ],
+    desc: "冥想系列之护眼放松\n科学的眼球运动\n改善眼部疲劳与酸涩症状\n预防假性近视",
+    price: 3.99
+}, {
+    id: "108",
+    mid: "5",
+    title: "压力舒缓",
+    img_big: "shoufei_logoA250.png",
+    img_white: "shoufei_logoA60.png",
+    img_black: "shoufei_logoA60_black.png",
+    color: "bg-purple",
+    tags: [ 1, 2, 3 ],
+    desc: "肌肉松弛冥想之压力舒缓\n适合日常减压\n暂时摆脱令人困扰的情绪\n身心得到休息",
+    price: 1.99
+}, {
+    id: "107",
+    mid: "5",
+    title: "交替放松",
+    img_big: "shoufei_logoA250.png",
+    img_white: "shoufei_logoA60.png",
+    img_black: "shoufei_logoA60_black.png",
+    color: "bg-purple",
+    tags: [ 1, 2, 3 ],
+    desc: "冥想系列之交替放松\n适合焦虑与恐惧情绪\n调节紧张与放松的躯体认知\n提高效率与睡眠质量",
+    price: 3.99
+}, {
+    id: "46",
+    title: "身心放松",
+    img_big: "Breathstudy_img_03_250.png",
+    img_white: "Breathstudy_img_03A@2x.png",
+    img_black: "Breathstudy_img_03@2x.png",
+    color: "bg-pink"
+}, {
+    id: "29",
+    title: "深度冥想",
+    img_big: "Breathstudy_img_02_250.png",
+    img_white: "Breathstudy_img_02A@2x.png",
+    img_black: "Breathstudy_img_02@2x.png",
+    color: "bg-pink"
+}, {
+    id: "28",
+    title: "深度睡眠",
+    img_big: "Breathstudy_img_01_250.png",
+    img_white: "Breathstudy_img_01A@2x.png",
+    img_black: "Breathstudy_img_01@2x.png",
+    color: "bg-pink"
+}, {
+    id: "57",
+    title: "平静舒眠",
+    img_big: "Breathstudy_img_06_250.png",
+    img_white: "Breathstudy_img_06A@2x.png",
+    img_black: "Breathstudy_img_06@2x.png",
+    color: "bg-pink"
+}, {
+    id: "35",
+    title: "海港巨轮",
+    img_big: "Breathstudy_img013_BGM250.png",
+    img_white: "Breathstudy_img013A_BGM@2x.png",
+    img_black: "Breathstudy_img013_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "36",
+    title: "清风徐来",
+    img_big: "Breathstudy_img014_BGM250.png",
+    img_white: "Breathstudy_img014A_BGM@2x.png",
+    img_black: "Breathstudy_img014_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "37",
+    title: "潮拍海岸",
+    img_big: "Breathstudy_img015_BGM250.png",
+    img_white: "Breathstudy_img015A_BGM@2x.png",
+    img_black: "Breathstudy_img015_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "38",
+    title: "海鸥掠影",
+    img_big: "Breathstudy_img016_BGM250.png",
+    img_white: "Breathstudy_img016A_BGM@2x.png",
+    img_black: "Breathstudy_img016_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "114",
+    title: "古道瘦马",
+    img_big: "Breathstudy_img034_BGM250.png",
+    img_white: "Breathstudy_img034A_BGM@2x.png",
+    img_black: "Breathstudy_img034_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "39",
+    title: "火车远行",
+    img_big: "Breathstudy_img017_BGM250.png",
+    img_white: "Breathstudy_img017A_BGM@2x.png",
+    img_black: "Breathstudy_img017_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "40",
+    title: "暮云鲸鸣",
+    img_big: "Breathstudy_img018_BGM250.png",
+    img_white: "Breathstudy_img018A_BGM@2x.png",
+    img_black: "Breathstudy_img018_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "41",
+    title: "落水滴答",
+    img_big: "Breathstudy_img019_BGM250.png",
+    img_white: "Breathstudy_img019A_BGM@2x.png",
+    img_black: "Breathstudy_img019_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "42",
+    title: "老屋的钟",
+    img_big: "Breathstudy_img020_BGM250.png",
+    img_white: "Breathstudy_img020A_BGM@2x.png",
+    img_black: "Breathstudy_img020_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "43",
+    title: "蛙鸣蝉噪",
+    img_big: "Breathstudy_img021_BGM250.png",
+    img_white: "Breathstudy_img021A_BGM@2x.png",
+    img_black: "Breathstudy_img021_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "44",
+    title: "旭日农庄",
+    img_big: "Breathstudy_img022_BGM250.png",
+    img_white: "Breathstudy_img022A_BGM@2x.png",
+    img_black: "Breathstudy_img022_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "45",
+    title: "打盹的猫",
+    img_big: "Breathstudy_img023_BGM250.png",
+    img_white: "Breathstudy_img023A_BGM@2x.png",
+    img_black: "Breathstudy_img023_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "112",
+    title: "画眉啾啾",
+    img_big: "Breathstudy_img032_BGM250.png",
+    img_white: "Breathstudy_img032A_BGM@2x.png",
+    img_black: "Breathstudy_img032_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "66",
+    title: "风号雪舞",
+    img_big: "Breathstudy_img024_BGM250.png",
+    img_white: "Breathstudy_img024A_BGM@2x.png",
+    img_black: "Breathstudy_img024_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "109",
+    title: "濯洗沐浴",
+    img_big: "Breathstudy_img030_BGM250.png",
+    img_white: "Breathstudy_img030A_BGM@2x.png",
+    img_black: "Breathstudy_img030_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "67",
+    title: "风吹麦浪",
+    img_big: "Breathstudy_img025_BGM250.png",
+    img_white: "Breathstudy_img025A_BGM@2x.png",
+    img_black: "Breathstudy_img025_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "111",
+    title: "莺啼枝头",
+    img_big: "Breathstudy_img031_BGM250.png",
+    img_white: "Breathstudy_img031A_BGM@2x.png",
+    img_black: "Breathstudy_img031_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "68",
+    title: "寒风凛冽",
+    img_big: "Breathstudy_img026_BGM250.png",
+    img_white: "Breathstudy_img026A_BGM@2x.png",
+    img_black: "Breathstudy_img026_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "69",
+    title: "绵羊咩咩",
+    img_big: "Breathstudy_img027_BGM250.png",
+    img_white: "Breathstudy_img027A_BGM@2x.png",
+    img_black: "Breathstudy_img027_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "70",
+    title: "瀑布飞溅",
+    img_big: "Breathstudy_img028_BGM250.png",
+    img_white: "Breathstudy_img028A_BGM@2x.png",
+    img_black: "Breathstudy_img028_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "113",
+    title: "凌云翱翔",
+    img_big: "Breathstudy_img033_BGM250.png",
+    img_white: "Breathstudy_img033A_BGM@2x.png",
+    img_black: "Breathstudy_img033_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "71",
+    title: "宝宝安抚",
+    img_big: "Breathstudy_img029_BGM250.png",
+    img_white: "Breathstudy_img029A_BGM@2x.png",
+    img_black: "Breathstudy_img029_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "140",
+    title: "牙牙学语",
+    img_big: "Breathstudy_img043_BGM250.png",
+    img_white: "Breathstudy_img043A_BGM@2x.png",
+    img_black: "Breathstudy_img043_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "136",
+    title: "铃响叮当",
+    img_big: "Breathstudy_img039_BGM250.png",
+    img_white: "Breathstudy_img039A_BGM@2x.png",
+    img_black: "Breathstudy_img039_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "138",
+    title: "书笺翻动",
+    img_big: "Breathstudy_img041_BGM250.png",
+    img_white: "Breathstudy_img041A_BGM@2x.png",
+    img_black: "Breathstudy_img041_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "137",
+    title: "婴儿酣眠",
+    img_big: "Breathstudy_img040_BGM250.png",
+    img_white: "Breathstudy_img040A_BGM@2x.png",
+    img_black: "Breathstudy_img040_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "141",
+    title: "篝火冉冉",
+    img_big: "Breathstudy_img044_BGM250.png",
+    img_white: "Breathstudy_img044A_BGM@2x.png",
+    img_black: "Breathstudy_img044_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "133",
+    title: "夏雨倾盆",
+    img_big: "Breathstudy_img036_BGM250.png",
+    img_white: "Breathstudy_img036A_BGM@2x.png",
+    img_black: "Breathstudy_img036_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "135",
+    title: "雨落屋檐",
+    img_big: "Breathstudy_img038_BGM250.png",
+    img_white: "Breathstudy_img038A_BGM@2x.png",
+    img_black: "Breathstudy_img038_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "142",
+    title: "生命力量",
+    img_big: "Breathstudy_img045_BGM250.png",
+    img_white: "Breathstudy_img045A_BGM@2x.png",
+    img_black: "Breathstudy_img045_BGM@2x.png",
+    color: "bg-green"
+}, {
+    id: "139",
+    title: "童趣盎然",
+    img_big: "Breathstudy_img042_BGM250.png",
+    img_white: "Breathstudy_img042A_BGM@2x.png",
+    img_black: "Breathstudy_img042_BGM@2x.png",
+    color: "bg-blue"
+}, {
+    id: "143",
+    title: "城市街头",
+    img_big: "Breathstudy_img046_BGM250.png",
+    img_white: "Breathstudy_img046A_BGM@2x.png",
+    img_black: "Breathstudy_img046_BGM@2x.png",
+    color: "bg-dark-blue"
+}, {
+    id: "134",
+    title: "秋雨凄凄",
+    img_big: "Breathstudy_img037_BGM250.png",
+    img_white: "Breathstudy_img037A_BGM@2x.png",
+    img_black: "Breathstudy_img037_BGM@2x.png",
+    color: "bg-red"
+}, {
+    id: "132",
+    title: "春雨无声",
+    img_big: "Breathstudy_img035_BGM250.png",
+    img_white: "Breathstudy_img035A_BGM@2x.png",
+    img_black: "Breathstudy_img035_BGM@2x.png",
+    color: "bg-green"
+} ];
+
+module.exports = {
+    music_data: g
+};
